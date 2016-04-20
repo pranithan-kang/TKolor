@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8" />
+  <script src="TKolor.js"></script>
+  <script>
+    window.onload = function (evt) {
+      var d = document;
+      var div = d.querySelector("#srcDiv"),
+          div2 = d.querySelector("#destDiv");
+      var initColor = div.style.backgroundColor;
+      var destColor = div2.style.backgroundColor;
+
+      var arr = TKolor.FindIncrementalRGBColorSet(initColor, destColor, 7);
+      for (var i in arr) {
+        var newDiv = div.cloneNode();
+        newDiv.style.backgroundColor = arr[i];
+        d.body.appendChild(newDiv);
+      }
+    };
+  </script>
+</head>
+<body>
+  <div id="srcDiv" style="width:500px; height:100px; background:#00008c;"></div>
+  <div id="destDiv" style="width:500px; height:100px; background:#a5a5ff;"></div>
+</body>
+</html>
